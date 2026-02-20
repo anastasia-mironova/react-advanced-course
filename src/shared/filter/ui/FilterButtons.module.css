@@ -1,0 +1,61 @@
+.filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  color: #666;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  outline: none;
+  min-width: 120px;
+}
+
+.filterButton:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filterButton:focus-visible .filterButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+  outline-offset: 2px;
+}
+
+.filterButton.active {
+  background-color: #4caf50;
+  color: white;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .filterButton {
+    padding: 8px 14px;
+    font-size: 13px;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filters {
+    gap: 8px;
+  }
+
+  .filterButton {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 90px;
+    flex: 1;
+  }
+}

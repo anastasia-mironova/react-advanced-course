@@ -1,0 +1,155 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.filterButton {
+  padding: 8px 16px;
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  color: #666;
+  outline: none;
+}
+
+.filterButton:hover {
+  background-color: #f0f0f0;
+}
+
+.filterButton.active {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.counter {
+  text-align: right;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 15px;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s ease;
+}
+
+.taskItem:hover {
+  transform: translateX(-5px);
+}
+
+.taskItem > :first-child {
+  flex: 1;
+}
+
+.deleteButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: #f44;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgb(255 68 68 / 30%);
+  flex-shrink: 0;
+  padding: 8px;
+  font-size: 0;
+  position: relative;
+}
+
+.deleteButton::before {
+  transform: rotate(45deg);
+}
+
+.deleteButton::after {
+  transform: rotate(-45deg);
+}
+
+.deleteButton::before,
+.deleteButton::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background-color: white;
+  border-radius: 1px;
+}
+
+.deleteIcon {
+  width: 100%;
+  height: 100%;
+}
+
+.deleteButton:hover {
+  background-color: #c00;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgb(204 0 0 / 40%);
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 2px dashed #ddd;
+}
+
+@media (width <= 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+
+  .filterButton {
+    flex: 1;
+    min-width: 100px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .deleteButton {
+    opacity: 0.5;
+    pointer-events: auto;
+    width: 36px;
+    height: 36px;
+  }
+}
