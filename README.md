@@ -1,73 +1,22 @@
-# React + TypeScript + Vite
+## 1. Удаление элемента
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+| До мемоизации | После мемоизации |
+|:-------------:|:----------------:|
+| ![удаление до](src/assets/удаление%20до.png) | ![удаление после](src/assets/удаление%20после.png) |
 
-Currently, two official plugins are available:
+**Результат:**
+- ✅ Исчезли лишние ререндеры TaskCard
+- ✅ Количество стадий уменьшилось на одну
+- ✅ Меньше рендеров компонентов App и TaskPage
+- ✅ Время рендера страницы: **3.3мс** → **2.2мс** (экономия 1.1мс)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Переключение фильтра
 
-## React Compiler
+| До мемоизации | После мемоизации |
+|:-------------:|:----------------:|
+| ![фильтрация до](src/assets/фильтрация%20до.png) | ![фильтрация после](src/assets/фильтрация%20после.png) |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Результат:**
+- ✅ Исчезли лишние ререндеры TaskCard
+- ✅ Меньше рендеров компонентов App и TaskPage
+- ✅ Время рендера страницы: **5.2мс** → **4.4мс** (экономия 0.8мс)

@@ -2,7 +2,7 @@ import React from 'react'
 import type {Task} from 'entities/task/model/types.ts'
 import styles from './TaskCard.module.css'
 
-export const TaskCard: React.FC<Task> = ({id, title, completed}) => (
+export const TaskCard: React.FC<Task> = React.memo<Task>(({id, title, completed}) => (
   <div key={id}>
     <div className={`${styles.card} ${completed ? styles.completed : ''}`}>
       <span className={styles.title}>{title}</span>
@@ -18,4 +18,4 @@ export const TaskCard: React.FC<Task> = ({id, title, completed}) => (
       </div>
     </div>
   </div>
-)
+))
