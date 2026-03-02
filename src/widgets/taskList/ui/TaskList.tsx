@@ -1,10 +1,9 @@
 import React from 'react'
 import useTasks from '../model/useTasks'
-import {TaskCard} from 'entities/task/ui/TaskCard'
+import {TaskCard} from 'entities/task'
 import styles from './TaskList.module.css'
 import type {Task} from 'entities/task'
-import type {FilterType} from 'widgets/taskList/model/types'
-import {FilterButtons} from 'shared/filter/ui/FilterButtons.tsx'
+import {FilterButtons, type FilterType} from 'shared/filter'
 
 const initialTasks: Task[] = [
   {id: '1', title: 'Купить продукты', completed: false},

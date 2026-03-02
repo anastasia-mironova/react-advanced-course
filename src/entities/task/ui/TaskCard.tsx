@@ -1,9 +1,9 @@
 import React from 'react'
-import type {Task} from 'entities/task/model/types.ts'
+import type {Task} from 'entities/task/model/types'
 import styles from './TaskCard.module.css'
 
-export const TaskCard: React.FC<Task> = React.memo<Task>(({id, title, completed}) => (
-  <div key={id}>
+export const TaskCard: React.FC<Task> = React.memo<Task>(({title, completed}) => (
+  <div>
     <div className={`${styles.card} ${completed ? styles.completed : ''}`}>
       <span className={styles.title}>{title}</span>
       <div className={styles.checkboxWrapper}>

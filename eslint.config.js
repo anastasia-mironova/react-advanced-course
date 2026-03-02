@@ -142,9 +142,11 @@ export default defineConfig([
       'react/prop-types': 'off'
     }
   },
-  eslintPluginPrettierRecommended,
   {
+    files: ['**/*.{ts,tsx,js,jsx,json,md}'],
+    ...eslintPluginPrettierRecommended,
     rules: {
+      'comma-dangle': 'off',
       'prettier/prettier': [
         'error',
         {
@@ -152,7 +154,9 @@ export default defineConfig([
           semi: false,
           trailingComma: 'none',
           printWidth: 100,
-          bracketSpacing: false
+          bracketSpacing: false,
+          insertFinalNewline: 'auto',
+          endOfLine: 'auto'
         }
       ]
     }

@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './FilterButtons.module.css'
-
-export type FilterType = 'all' | 'completed' | 'incomplete'
+import type {FilterType} from 'shared/filter'
 
 interface FiltersProps {
   currentFilter: FilterType

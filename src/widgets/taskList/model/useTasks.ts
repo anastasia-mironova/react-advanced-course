@@ -1,6 +1,6 @@
 import type {Task} from 'entities/task'
 import {useCallback, useMemo, useState} from 'react'
-import type {FilterType} from 'widgets/taskList/model/types.ts'
+import type {FilterType} from 'shared/filter'
 
 export default function useTasks(initial: Task[]) {
   const [tasks, setTasks] = useState<Task[]>(initial)
