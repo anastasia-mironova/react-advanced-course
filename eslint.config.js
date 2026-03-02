@@ -137,7 +137,9 @@ export default defineConfig([
       'react/jsx-indent-props': ['error', 2],
       'react-refresh/only-export-components': ['warn', {allowConstantExport: true}],
       'react/react-in-jsx-scope': 'off',
-      'react/jsx-uses-react': 'off'
+      'react/jsx-uses-react': 'off',
+      'react/display-name': 'off',
+      'react/prop-types': 'off'
     }
   },
   eslintPluginPrettierRecommended,

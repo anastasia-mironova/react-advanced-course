@@ -1,5 +1,5 @@
 import type {Task} from 'entities/task'
-import {useMemo, useState} from 'react'
+import {useCallback, useMemo, useState} from 'react'
 import type {FilterType} from 'widgets/taskList/model/types.ts'
 
 export default function useTasks(initial: Task[]) {
@@ -18,9 +18,9 @@ export default function useTasks(initial: Task[]) {
     }
   }, [tasks, filter])
 
-  const removeTask = (id: string) => {
+  const removeTask = useCallback((id: string) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id))
-  }
+  }, [])
 
   return {
     tasks: filteredTasks,
