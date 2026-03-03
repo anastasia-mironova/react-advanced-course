@@ -2,22 +2,18 @@ import React from 'react'
 import useTasks from '../model/useTasks'
 import {TaskCard} from 'entities/task'
 import styles from './TaskList.module.css'
-import type {Task} from 'entities/task'
 import {FilterButtons, type FilterType} from 'shared/filter'
-
-const initialTasks: Task[] = [
-  {id: '1', title: 'Купить продукты', completed: false},
-  {id: '2', title: 'Постирать вещи', completed: true},
-  {id: '3', title: 'Погладить кошку', completed: false},
-  {id: '4', title: 'Написать код', completed: true},
-  {id: '5', title: 'Выпить чай', completed: false}
-]
+import {Loader} from 'shared/loader'
 
 export const TaskList: React.FC = () => {
-  const {tasks, filter, setFilter, removeTask} = useTasks(initialTasks)
+  const {tasks, filter, setFilter, removeTask, isLoading} = useTasks()
 
   const handleFilterChange = (newFilter: FilterType) => {
     setFilter(newFilter)
+  }
+
+  if (isLoading) {
+    return <Loader />
   }
 
   return (

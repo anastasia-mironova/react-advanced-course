@@ -139,7 +139,8 @@ export default defineConfig([
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
       'react/display-name': 'off',
-      'react/prop-types': 'off'
+      'react/prop-types': 'off',
+      'react-hooks/set-state-in-effect': 'off'
     }
   },
   {

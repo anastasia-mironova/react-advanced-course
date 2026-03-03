@@ -1,10 +1,18 @@
 import type {Task} from 'entities/task'
-import {useCallback, useMemo, useState} from 'react'
+import {useCallback, useEffect, useMemo, useState} from 'react'
 import type {FilterType} from 'shared/filter'
+import {useGetTasksQuery} from 'widgets/taskList/api/tasksApi.ts'
 
-export default function useTasks(initial: Task[]) {
-  const [tasks, setTasks] = useState<Task[]>(initial)
+export default function useTasks() {
+  const {data: remoteTasks = [], isLoading} = useGetTasksQuery()
+  const [tasks, setTasks] = useState<Task[]>(remoteTasks)
   const [filter, setFilter] = useState<FilterType>('all')
+
+  useEffect(() => {
+    if (remoteTasks.length > 0 && tasks.length === 0) {
+      setTasks(remoteTasks)
+    }
+  }, [remoteTasks, tasks.length])
 
   const filteredTasks = useMemo(() => {
     switch (filter) {
@@ -26,6 +34,7 @@ export default function useTasks(initial: Task[]) {
     tasks: filteredTasks,
     filter,
     setFilter,
-    removeTask
+    removeTask,
+    isLoading
   }
 }

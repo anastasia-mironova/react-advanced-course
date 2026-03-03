@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 20px;
+    width: 100%;
+    min-height: 100px;
+}
+
+.containerFullScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    z-index: 9999;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #3498db;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.dot1 {
+    animation-delay: -0.32s;
+}
+
+.dot2 {
+    animation-delay: -0.16s;
+}
+
+.dot3 {
+    animation-delay: 0s;
+}
+
+.small .dot {
+    width: 8px;
+    height: 8px;
+}
+
+.medium .dot {
+    width: 12px;
+    height: 12px;
+}
+
+.large .dot {
+    width: 16px;
+    height: 16px;
+}
+
+.primary .dot {
+    background-color: #3498db;
+}
+
+.secondary .dot {
+    background-color: #95a5a6;
+}
+
+.success .dot {
+    background-color: #2ecc71;
+}
+
+.danger .dot {
+    background-color: #e74c3c;
+}
+
+.white .dot {
+    background-color: #ffffff;
+}
+
+.text {
+    margin-left: 12px;
+    color: #666;
+    font-size: 14px;
+}
+
+.textWhite {
+    color: #ffffff;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
